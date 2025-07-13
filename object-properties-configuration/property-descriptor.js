@@ -1,9 +1,10 @@
 /*
-A property descriptor is an object that defines the attributes (property flags) controlling the 
+- A property descriptor is an object that defines the attributes (or flags) controlling the 
 behavior of a specific property on an object.
+- value, writable, enumerable, configurable
 */
 
-// When a property is created directly, all flags defaults to true
+// -- When a property is created directly, all flags defaults to true
 let person = {
   name: "John",
 };
@@ -11,13 +12,10 @@ person.age = 25;
 console.log(Object.getOwnPropertyDescriptor(person, "name"));
 console.log(Object.getOwnPropertyDescriptor(person, "age"));
 
-// When using Object.defineProperty, all flags defaults to false if not explicitly specified
-let user = {
-  toString() {
-    return this.name;
-  },
-};
+// -- When using Object.defineProperty, all flags defaults to false if not explicitly specified
+let user = {};
 Object.defineProperty(user, "name", {});
+console.log(user); // undefined
 console.log(Object.getOwnPropertyDescriptor(user, "name"));
 
 Object.defineProperty(user, "age", {
@@ -48,7 +46,8 @@ for (prop in user) {
 }
 console.log(JSON.stringify(user));
 
-console.log(Object.getOwnPropertyNames(user)); // includes non-enumerable
+// includes non-enumerable
+console.log(Object.getOwnPropertyNames(user));
 console.log("name" in user); // true
 
 // configurable: true -> property can be deleted and its descriptor can be changed.

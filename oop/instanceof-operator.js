@@ -1,0 +1,5 @@
+/*
+instanceof
+- object instanceof Constructor
+- 
+*/

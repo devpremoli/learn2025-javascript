@@ -4,7 +4,18 @@
 - setter must have exactly one parameter.
 - There is no value or writable in descriptor for accessor properties, but instead there are get and set functions.
 
+Syntax
+let obj = {
+  get propName() {
+    // getter, the code executed on getting obj.propName
+  },
+
+  set propName(value) {
+    // setter, the code executed on setting obj.propName = value
+  }
+};
 */
+
 let user = {
   firstName: "Alice",
   lastName: "Cooper",
@@ -17,10 +28,10 @@ let user = {
   },
 };
 
+console.log(user);
+
 console.log(user.fullName);
 user.fullName = "John Doe";
-console.log(user.firstName);
-console.log(user.lastName);
 console.log(user.fullName);
 
 Object.defineProperty(user, "address", {
